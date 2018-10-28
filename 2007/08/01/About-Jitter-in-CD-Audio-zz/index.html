@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Technology,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="原著：Charles Altmann编译：王轩骞(hotpoint) Episode 1:什么是jitter 所谓jitter就是一种抖动。具体如何解释呢？让我们来看一个例子。假如你有个女友，你希望她每天晚上下班之后7点来找你，而有的时候她6:30到，有的时候是7:23，有的时候也许是下一天。这种时间上的不稳定就是jitter。如果你多观察这种时间上的不规律性，你会对jitter有更深一些的理解。">
+<meta name="keywords" content="Technology">
+<meta property="og:type" content="article">
+<meta property="og:title" content="About Jitter in CD Audio(zz) ">
+<meta property="og:url" content="http://yoursite.com/2007/08/01/About-Jitter-in-CD-Audio-zz/index.html">
+<meta property="og:site_name" content="青葱炒年糕">
+<meta property="og:description" content="原著：Charles Altmann编译：王轩骞(hotpoint) Episode 1:什么是jitter 所谓jitter就是一种抖动。具体如何解释呢？让我们来看一个例子。假如你有个女友，你希望她每天晚上下班之后7点来找你，而有的时候她6:30到，有的时候是7:23，有的时候也许是下一天。这种时间上的不稳定就是jitter。如果你多观察这种时间上的不规律性，你会对jitter有更深一些的理解。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-28T05:00:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="About Jitter in CD Audio(zz) ">
+<meta name="twitter:description" content="原著：Charles Altmann编译：王轩骞(hotpoint) Episode 1:什么是jitter 所谓jitter就是一种抖动。具体如何解释呢？让我们来看一个例子。假如你有个女友，你希望她每天晚上下班之后7点来找你，而有的时候她6:30到，有的时候是7:23，有的时候也许是下一天。这种时间上的不稳定就是jitter。如果你多观察这种时间上的不规律性，你会对jitter有更深一些的理解。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2007/08/01/About-Jitter-in-CD-Audio-zz/">
+
+
+
+
+
+  <title>About Jitter in CD Audio(zz)  | 青葱炒年糕</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">青葱炒年糕</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2007/08/01/About-Jitter-in-CD-Audio-zz/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="喇叭">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青葱炒年糕">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">About Jitter in CD Audio(zz) </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2007-08-01T22:15:12-04:00">
+                2007-08-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>原著：Charles Altmann<br>编译：王轩骞(hotpoint)</p>
+<p>Episode 1:什么是jitter</p>
+<p>所谓jitter就是一种抖动。具体如何解释呢？让我们来看一个例子。假如你有个女友，你希望她每天晚上下班之后7点来找你，而有的时候她6:30到，有的时候是7:23，有的时候也许是下一天。这种时间上的不稳定就是jitter。如果你多观察这种时间上的不规律性，你会对jitter有更深一些的理解。<br>在你观察的这段期间内，女友最早和最晚到来的时间被称为“jitter全振幅”（peak to peak jitter amplitude)。“jitter半振幅”（jitter-amplitude）就是你女友实际来的时间和7点之间的差值。女友来的时间有早有晚，jitter半振幅也有正有负。<br>通过计算，你可以找出jitter半振幅的平均值，如果你能够计算出你女友最有可能在哪个时间来，你就可以发现女友来的时间是完全无规律的（随机jitter radeom jitter）还是和某些特定事情有关系（关联jitter correlated jitter）。所谓关联jitter就是比如你知道你的女友周四要晚来，因为她要去看她的妈妈。如果你能彻底明白这点，你就已经是一个correlated jitter的专家了。</p>
+<p>Episode 2：什么是时基抖动（Clock jitter）<br>在数字音频中，我们要直接和数字信号的发送与传输打交道。声音以二进制编码被储存在光盘或者DAT卡带中，在回放音乐的时候，这些010101的信号被送进DA转换器(Digital-Analog converter）并被还原为模拟波形信号；在录制数字音频的时候，一个参考时钟信号会和音频信息一起被送进AD转换器（Analog-Digital converter），转换器把模拟信号转换为0101的数字信号并且记录下来。<br>数字信号总是和一个参考时钟信号一起传送并且记录，一些数字音频传输格式如S/PDIF和AES/EBU，它们在一个信号中同时传送数据和时钟。数字音频的时钟信号是一种方波（square-wave），并且在频率以及振幅上被进行了修正，而且它的占空比要达到50%。信号的改变（方波波形的高低变化即电平的高低）记录着时钟信息。<br>如果信号传输所用的时间不相等，那么就产生了时基抖动，实际上，世界上是没有任何一个不存在时基抖动的电路（就好像你的女友不可能总是以1/1000秒的精确时间到达：）现在，你已经具备了时基抖动基本知识，下面，让我们看一些更深层的。<br>Joe Adler是这样定义时基抖动的：“对于数字信号在时间上正确位置有重大影响的短时间的改变。”（”Short-term variations of the significant instants of a digital signal from their ideal positions in time”）在Adler的这篇文章中，他还讲了关于如何测量jitter的技术。</p>
+<p>Episode 3：什么产生了jitter<br>需要精确的东西都是越精确越难以做到。在后面的文章中，你将了解到，数字音频需要非常非常高的时钟精确度，因为我们的耳朵对于声音的质量似乎异常敏感。因此，为了得到最精确的结果，我们需要非常精确的测量仪器。通常，数字音频设备的时钟都是由非常精密的晶体振荡器产生的。<br>正如Mike Story说的：“基于晶振（晶体振荡器以及压控晶体振荡器产生的）产生的时钟具有非常的低的jitter，但是jitter仍然存在。”（”Crystal based clocks (XCO′s, VCXO′s) generally have the lowest jitter - but they still have some.” ）“在设备中还有其他产生远比压控晶体振荡器产生更多jitter的jitter源。”（”There are other sources of jitter inside equipment that may contribute substantially more than the VCXO.”）这里所说的其他jitter源主要是电源供电部分产生的电压波动，这些波动对于DA转换器是很致命的，它会导致转换点在逻辑上发生时间变化（causing variations in logic level switch points）。</p>
+<p>Episode 4：CD player里面到底发生了什么<br>如果电源噪音（电压波动）导致切换点逻辑上的时间抖动，那么播放器（CD，MD，DVD，DSD，DAT）里面到底发生了什么？<br>一个简单的CD播放器里面有多个马达，驱动电路以及控制电路。为了能够正常读取盘片，机器要做以下工作：首先，主轴马达驱动CD盘片转动并达到预定速度，控制光头位置的定位马达驱动光头定位到预定轨道上，最后，驱动回路控制光头聚焦，光头发射激光并且接收反射信号。每一个马达和回路都会增加电源噪音，这些噪音直接影响DA转换器的内部工作状态。所以，每一个马达和回路都会为数字信号增加另外一种jitter（频率，振幅以及波形上的不同），这些干扰通过不同方式都会影响到声音的质量。<br>如果你明白了以上原理，我就可以给你解释那些HIFI爱好者以及录音师争论得很激烈的以下问题：<br>1，为什么不同的CD镇片（就是主轴上面用来固定盘片的铁片）会造成听感上的不同。<br>2，为什么一些转盘制造厂商使用皮带传动<br>3，为什么不同的转盘音质不同<br>4，为什么一些厂商在转盘中使用stray light(???)<br>5，为什么一些类似“消磁作用”的产品对转盘有效果<br>6，为什么不同的存储介质音质不同，尽管他们记录的都是0101的数字信号<br>答案主要是如下几点：<br>一些CD播放器或者CD转盘价格非常昂贵的原因是他们将整个解码系统源头，即读取设备产生的jitter降低到了最小。为此，它们需要使用非常稳定和干净的电源，多路供电，精确的时钟生成电路以及造价昂贵的机械结构。在后面，我们将在价格因素尽量小的情况下比较jitter的影响。但是，如何确定上面说的这些可以全面的解释jitter到底是什么呢？我们将在“jitter听起来是什么样子”用具体讨论。让我们先关注一下别的。</p>
+<p>Episode 5：产生jitter的源<br>jitter可以分为两种：交界面产生的jitter（interface jitter）和采样中产生的jitter（sampling jitter）。交界面产生的jitter可以进一步被划分为传送过程中产生（transmitter jitter）的（比如为了把数字信号输出到转盘外部所产生的）和线材引起（line induced jitter）的。当我们把CD的数字输出和外部的DA转换器连接在一起的时候，不管使用同轴线缆，还是TOSLINK光纤接口，或者SToptical 接口，都将在源信号中引入jitter。有趣的是，不同的接口会引入不同类型的jitter（波形，频率，振幅以及相关性上的不同）。具有了以上知识，你已经可以回答以下问题：<br>1，为什么不同的数字接口（光纤，同轴）音质不同，尽管他们传送的都是相同的信号。<br>2，为什么线材长度会直接影响音质。<br>3，为什么不同厂家生产的同样长度的同轴线缆音质不同。<br>这些都是线材引起的jitter。</p>
+<p>Episode 6：采样jitter（sampling jitter）<br>在声音再生的过程中，我们通过许多方法削弱在DA转换器之前产生的jitter，对于这个，我们将在“如何消除jitter”中具体讨论。但是你应当知道，如果在数字信号的录制过程中jitter就已经产生了这怎么办呢？答案很简单，重新录一份：）数字录音过程中产生的时基抖动究竟是怎么一回事呢？答案是正确的采样记录在了时间轴错误的位置上。而在录音之后，这是jitter完全不可以被矫正的。传输过程产生的以及线材引起的jitter对于整套数字录音系统的品质有至关重要的影响。作为数字录音系统的主要器材，AD转换器的时钟发生器会夹杂相当数量的jitter。这些夹杂着jitter的时钟信号通过数字线路，被传送到AD转换器中，而在这个过程中，又会引入线材产生的jitter。这些带有jitter的信号会成为参考时钟信号被送入AD转换器，并且决定信号采样点的位置最终记录下来。AD转换器内部的电路可以削减一部分外部产生的jitter，但是它不能去掉全部。因此对于录音师来说，AD转换器时钟信号中引入越少量的jitter，最终得到的记录质量就越好。Bob Katz在他的文章中这样说：“模拟－数字转换器是整套数字音频电路中最容易受到jitter影响的部分。”（”The A to D Converter is one of the most critical digital audio components susceptible to jitter”）<br>对于低成本的设备来说，使用内部的参考时钟的AD转换器可以避免因数字接口以及参考时钟和外部转换器之间产生交界面jitter，但是如果需要在已有的音轨后面添加新的内容，那么就需要同步AD转换器和已经录制的音轨。这种情况下，你就需要一个外部参考时钟。高质量的录音工作室通常使用高精度（通常是可以控制的）的参考时钟来同步AD转换器。如果你有一个好的时钟发生器，它会大大减少传输过程中产生的jitter，但是你仍然要和传输过程中线材引起的 jitter做斗争。 </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Technology/" rel="tag"># Technology</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2007/07/21/初识ubuntu-我的Linux之旅/" rel="next" title="初识ubuntu--我的Linux之旅">
+                <i class="fa fa-chevron-left"></i> 初识ubuntu--我的Linux之旅
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2007/08/13/花钱的诱惑/" rel="prev" title="花钱的诱惑">
+                花钱的诱惑 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="喇叭">
+          <p class="site-author-name" itemprop="name">喇叭</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">132</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">喇叭</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
