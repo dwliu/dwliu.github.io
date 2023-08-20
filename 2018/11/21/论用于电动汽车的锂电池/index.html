@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="../../../../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="../../../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="../../../../css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Technology,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="今晚在微信群里跟人讨论特斯拉以及锂电池的安全性，也了解了一下作为电动汽车用的锂电池的优缺点。打算借机记录下来，也总结一下自己的看法。欢迎讨论、拍砖。 关于锂电池的分类比较，感觉知乎用户“江子才”下面这篇文章已经讲得很清楚了。简而言之，三元锂电池的能量密度高，但安全性差；磷酸铁锂电池安全性高，但是能量密度太低、成本也高。 江子才：细数磷酸铁锂电池的优缺点 能量密度太低，就会导致电池占车身的体积过大，">
+<meta name="keywords" content="Technology">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论用于电动汽车的锂电池">
+<meta property="og:url" content="http://yoursite.com/2018/11/21/论用于电动汽车的锂电池/index.html">
+<meta property="og:site_name" content="The road ahead">
+<meta property="og:description" content="今晚在微信群里跟人讨论特斯拉以及锂电池的安全性，也了解了一下作为电动汽车用的锂电池的优缺点。打算借机记录下来，也总结一下自己的看法。欢迎讨论、拍砖。 关于锂电池的分类比较，感觉知乎用户“江子才”下面这篇文章已经讲得很清楚了。简而言之，三元锂电池的能量密度高，但安全性差；磷酸铁锂电池安全性高，但是能量密度太低、成本也高。 江子才：细数磷酸铁锂电池的优缺点 能量密度太低，就会导致电池占车身的体积过大，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-22T02:53:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="论用于电动汽车的锂电池">
+<meta name="twitter:description" content="今晚在微信群里跟人讨论特斯拉以及锂电池的安全性，也了解了一下作为电动汽车用的锂电池的优缺点。打算借机记录下来，也总结一下自己的看法。欢迎讨论、拍砖。 关于锂电池的分类比较，感觉知乎用户“江子才”下面这篇文章已经讲得很清楚了。简而言之，三元锂电池的能量密度高，但安全性差；磷酸铁锂电池安全性高，但是能量密度太低、成本也高。 江子才：细数磷酸铁锂电池的优缺点 能量密度太低，就会导致电池占车身的体积过大，">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/21/论用于电动汽车的锂电池/">
+
+
+
+
+
+  <title>论用于电动汽车的锂电池 | The road ahead</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">The road ahead</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Records of my growth and life</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="喇叭">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../../../images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The road ahead">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">论用于电动汽车的锂电池</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-21T21:43:14-08:00">
+                2018-11-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>今晚在微信群里跟人讨论特斯拉以及锂电池的安全性，也了解了一下作为电动汽车用的锂电池的优缺点。打算借机记录下来，也总结一下自己的看法。欢迎讨论、拍砖。</p>
+<p>关于锂电池的分类比较，感觉知乎用户“江子才”下面这篇文章已经讲得很清楚了。简而言之，三元锂电池的能量密度高，但安全性差；磷酸铁锂电池安全性高，但是能量密度太低、成本也高。</p>
+<p><a href="https://zhuanlan.zhihu.com/p/36009244" target="_blank" rel="noopener">江子才：细数磷酸铁锂电池的优缺点</a></p>
+<p>能量密度太低，就会导致电池占车身的体积过大，相同质量下的电动车续航能力差；而安全性差，意味着锂电池稳定性差，在高温／高湿／碰撞的极端环境下，电池本身容易起火。而目前人类对锂电池的内部控制非常有限，仅能通过检测其温度／电压／电流等外在特征来推断电池是否存在起火隐患，并即时切断电源。</p>
+<p>作为电动汽车用的电池，安全性和能量密度几乎同等重要。很可惜在当前的技术条件下，并没有理想电池同时符合这两个条件。如果一定要选出更重要的，可能是三元锂电池，因为其能量密度高，而且安全性在一定程度上可以弥补。相比之下，磷酸铁锂电池的能量密度不高，且已达理论上限，即使达到三元锂电池同等能量，也需要其两倍的体积，所以并不适合用于普通电动车，除非车体可以接受很高的电池重量。</p>
+<p>特斯拉最初选择了基于三元锂电池的18650，最新的model 3采用同样基于三元锂电池的21700。二者的共同特点是高能量密度和低成本。这表明了特斯拉对于电池技术选择的态度：宁愿牺牲安全性，也要保证高密度和低成本。与之对比的是，以比亚迪为代表的国内厂商采用磷酸铁锂电池为主，显示出谨慎、现实的态度，直到近年来才逐步提高了三元锂电池的使用。</p>
+<p>可见，当前锂电池技术尚难令人满意。同时，其他新一代的电池，如氢燃料电池，尚未有所突破。但是，政策不等人。无论中国、欧洲还是加拿大，均制定了雄心勃勃的电动车取代汽油车的计划，并实施相应的法规。所以，尽管并没有特别理想的选择，也只能赶鸭子上架，挑出最适合电动汽车的锂电池。然后从矮子里面拔将军，未来市场也很有可能挑出改进版的三元锂电池。</p>
+<p>评判电动汽车不能光看驾驶体验，也要注重安全。虽然三元锂电池是当下相对最有希望的，但不能忽视它的安全隐患。因为密度、价格这些是资本所关注的，而对于民众最重要的安全性反而容易被无视，可是这背后，都是一个个血淋淋的生命的代价。</p>
+<p>特斯拉因为电动车技术领先，导致监管标准脱节，它的质量和合规、尤其是安全性，并没有收到严格的监管。这给特斯拉的安全性埋下了隐患，尽管特斯拉认为它的电池管理技术可以弥补其弱点。总之，我希望特斯拉安全性能的提高，不是以民众的生命为代价，尽管，它已经在这么做了。</p>
+<p>最后，我的观点不变：目前，纯电动汽车的技术瓶颈尚未解决——电池，包括电池的安全性、能量密度、快充，所以电动汽车的市场不会很快起飞。因为不存在各方面令人满意的电池技术，各汽车厂商、以及市场不得不进行取舍，同时各国的法律法规也需要进一步完善。</p>
+<p>甚至，我进一步认为：未来汽车的趋势是<strong>混合动力</strong>，而非纯电动。从车辆本身来看，混合动力可以结合烧油车的能量密度和加油的便利性，以及电动的高能效，同时可以规避锂电池导致的安全风险。低速时使用电池动力，高速时使用燃油动力，从而实现最高的综合能耗。同时，混合动力也更符合产业演变的趋势。由于目前电池技术的瓶颈，充分利用几十年来建成的庞大汽车产业链的优势和便利，比推翻它另起炉灶要容易很多，这也将是国家、行业和用户更好的选择。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="../../../../tags/Technology/" rel="tag"># Technology</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="../../../10/25/第一篇/" rel="next" title="第一篇">
+                <i class="fa fa-chevron-left"></i> 第一篇
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="../../../12/18/华夫饼早餐/" rel="prev" title="华夫饼早餐">
+                华夫饼早餐 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="../../../../images/avatar.jpg" alt="喇叭">
+          <p class="site-author-name" itemprop="name">喇叭</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="../../../../archives/">
+                <span class="site-state-item-count">148</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="../../../../tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">喇叭</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="../../../../lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="../../../../lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="../../../../lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="../../../../lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="../../../../lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="../../../../lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="../../../../js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="../../../../js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="../../../../js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="../../../../js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="../../../../js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="../../../../js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="../../../../js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

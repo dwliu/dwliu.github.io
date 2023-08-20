@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="../../../../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="../../../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="../../../../css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="心情随笔,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="最近几天比较闲，学着超频，把偶实验室的台机主频从1.8G超到2.25G，在everest的超频选项里看，从AMD Athlon 64 3000+变成了3500+，心里一阵窃喜，毕竟还没有加电压，直接在bios里面改外频，就超到这个效果，看来华擎这块主板超频真得不错！后来用找了几个小软件测了下系统，依然非常稳定（当然还要感谢实验室的中央空调）。看到网上有强人将其超到2.5G，小感慨一下，鉴于目前的超">
+<meta name="keywords" content="心情随笔">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识ubuntu--我的Linux之旅">
+<meta property="og:url" content="http://yoursite.com/2007/07/21/初识ubuntu-我的Linux之旅/index.html">
+<meta property="og:site_name" content="The road ahead">
+<meta property="og:description" content="最近几天比较闲，学着超频，把偶实验室的台机主频从1.8G超到2.25G，在everest的超频选项里看，从AMD Athlon 64 3000+变成了3500+，心里一阵窃喜，毕竟还没有加电压，直接在bios里面改外频，就超到这个效果，看来华擎这块主板超频真得不错！后来用找了几个小软件测了下系统，依然非常稳定（当然还要感谢实验室的中央空调）。看到网上有强人将其超到2.5G，小感慨一下，鉴于目前的超">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-28T05:11:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初识ubuntu--我的Linux之旅">
+<meta name="twitter:description" content="最近几天比较闲，学着超频，把偶实验室的台机主频从1.8G超到2.25G，在everest的超频选项里看，从AMD Athlon 64 3000+变成了3500+，心里一阵窃喜，毕竟还没有加电压，直接在bios里面改外频，就超到这个效果，看来华擎这块主板超频真得不错！后来用找了几个小软件测了下系统，依然非常稳定（当然还要感谢实验室的中央空调）。看到网上有强人将其超到2.5G，小感慨一下，鉴于目前的超">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2007/07/21/初识ubuntu-我的Linux之旅/">
+
+
+
+
+
+  <title>初识ubuntu--我的Linux之旅 | The road ahead</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">The road ahead</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Records of my growth and life</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="喇叭">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../../../images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The road ahead">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">初识ubuntu--我的Linux之旅</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2007-07-21T12:34:32-07:00">
+                2007-07-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近几天比较闲，学着超频，把偶实验室的台机主频从1.8G超到2.25G，在everest的超频选项里看，从AMD Athlon 64 3000+变成了3500+，心里一阵窃喜，毕竟还没有加电压，直接在bios里面改外频，就超到这个效果，看来华擎这块主板超频真得不错！后来用找了几个小软件测了下系统，依然非常稳定（当然还要感谢实验室的中央空调）。看到网上有强人将其超到2.5G，小感慨一下，鉴于目前的超频幅度已经高达25%，也就不再费啥心思了。</p>
+<p>把XP换成英文操作系统，也已经有几个月了。现在用起英文界面没有任何问题，而且越来越觉得还是英文看起来更舒服一些。电脑已经被我优化得飞快，像我这样一个对操作系统内核不感兴趣，又不是很喜欢编程的懒人，XP professional已经基本失去了再探索的价值。于是，前天晚上趁和sean一起吃饭，把他拖到实验室来，请他帮我装了一下Fedora Core 6。不得不声明一下，之前偶是一个对Linux一无所知的菜鸟，现在也是。</p>
+<p>采用硬盘安装的方式，FC6的安装还是很快的，英文版的操作系统往往第一件事就是寻找中文支持。sean同学装完之后有事走了，然后偶就开始了辛苦的摸索。FC6刚装完无法识别NTFS分区，所以我硬盘上原来的东西都不能看。界面对中文的支持也很糟糕，所有的中文都是一个小方框，除了英文之外其他所有的字体都是乱码。唯一欣慰的是有Firefox可以上网，偶在linux下的第一件事，就在google.com里键入“fedora Chinese display”……</p>
+<p>因为是菜鸟，网上的资料都看不懂，甚至连terminal都不知道怎么调出来-.-于是找到实验室的一个师兄，可惜师兄也很长时间没弄这个了，最后也还是不行，于是偶说师兄让我自己折腾一阵吧，又折腾了半个多小时后，未果。宿舍就要关门了，只好恨恨地离开了实验室。</p>
+<p>回到宿舍，和阿q大体说了下，结果他说你干嘛用Fedora啊，什么界面不好云云，听得偶头都大了，然后昨天上午，他帮我把fedora换成了最新的ubuntu 7.10。坦白地说，ubuntu的界面很漂亮，终于不用看到fedora那个恶心的双螺旋DNA和一排排的小方框了，也很开心。安装后默认是桔红色的背景，很喜欢。而且面板上面可以添加许多方便的功能，如便笺、天气、网络、关机按钮等等，也可以新建不同的面板，比windows的任务栏更加灵活，并且集成了部分google desktop的功能。</p>
+<p>现在的ubuntu 7.10，上网有Firefox，多媒体有MPlayer，办公有OpenOffice，聊天的话有pidgin和EVA（后面装的），除了还是英文的GUI。接下来的主要任务，就是从使用层面上，对中文输入法安装和设置的探索。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="../../../../tags/心情随笔/" rel="tag"># 心情随笔</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="../../14/老歌重帖/" rel="next" title="老歌重帖">
+                <i class="fa fa-chevron-left"></i> 老歌重帖
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="../../../08/01/About-Jitter-in-CD-Audio-zz/" rel="prev" title="About Jitter in CD Audio(zz) ">
+                About Jitter in CD Audio(zz)  <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="../../../../images/avatar.jpg" alt="喇叭">
+          <p class="site-author-name" itemprop="name">喇叭</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="../../../../archives/">
+                <span class="site-state-item-count">148</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="../../../../tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">喇叭</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="../../../../lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="../../../../lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="../../../../lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="../../../../lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="../../../../lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="../../../../lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="../../../../js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="../../../../js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="../../../../js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="../../../../js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="../../../../js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="../../../../js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="../../../../js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
