@@ -1,38 +1,693 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+  
 
 
-{% block content %}
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="../../../../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="../../../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="../../../../css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="心情随笔," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="7月初，因为工作的缘故，在台北转机，有幸在哪里玩了几天。总的来说，吃喝玩乐特别开心，因此在这里记录一下在台北期间的所见所闻和所想所感。 打卡的Google Maps地图记录： https:&#x2F;&#x2F;www.google.com&#x2F;maps&#x2F;d&#x2F;u&#x2F;0&#x2F;edit?mid&#x3D;1qkfPj3-E0XvwCyIzs90fqq6Eib6yuA8&amp;usp&#x3D;sharing  台北印象  台北总体的感觉是一座特别适">
+<meta property="og:type" content="article">
+<meta property="og:title" content="台北之旅">
+<meta property="og:url" content="http://yoursite.com/2024/07/14/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/index.html">
+<meta property="og:site_name" content="The Road Ahead">
+<meta property="og:description" content="7月初，因为工作的缘故，在台北转机，有幸在哪里玩了几天。总的来说，吃喝玩乐特别开心，因此在这里记录一下在台北期间的所见所闻和所想所感。 打卡的Google Maps地图记录： https:&#x2F;&#x2F;www.google.com&#x2F;maps&#x2F;d&#x2F;u&#x2F;0&#x2F;edit?mid&#x3D;1qkfPj3-E0XvwCyIzs90fqq6Eib6yuA8&amp;usp&#x3D;sharing  台北印象  台北总体的感觉是一座特别适">
+<meta property="og:locale">
+<meta property="og:image" content="http://yoursite.com/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/8cc01fd25831d5d942dae9dd8f83f853.jpeg">
+<meta property="og:image" content="http://yoursite.com/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/85-1589061.png">
+<meta property="og:image" content="http://yoursite.com/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/IMG_5359.JPG">
+<meta property="og:image" content="http://yoursite.com/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/IMG_5483-2228957.jpg">
+<meta property="og:image" content="http://yoursite.com/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/IMG_5530-2232689.jpg">
+<meta property="og:image" content="http://yoursite.com/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/image-20240728230633767-2233199.png">
+<meta property="og:image" content="http://yoursite.com/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/%E5%BF%A0%E7%83%88%E7%A5%A0%E5%A4%A7%E9%97%A8.jpg">
+<meta property="og:image" content="http://yoursite.com/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/%E5%BF%A0%E7%83%88%E7%A5%A0%E8%BF%9C%E6%99%AF.jpg">
+<meta property="og:image" content="http://yoursite.com/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/%E5%BF%A0%E7%83%88%E7%A5%A0%E6%AD%A3%E6%AE%BF.jpg">
+<meta property="og:image" content="http://yoursite.com/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/IMG_5542_%E6%96%87%E7%83%88%E5%A3%AB%E7%A5%A0-7673359.jpg">
+<meta property="og:image" content="http://yoursite.com/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/IMG_5543%20%E5%BC%A0%E8%87%AA%E5%BF%A0-7673380.jpg">
+<meta property="og:image" content="http://yoursite.com/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/IMG_5544%20%E9%AB%98%E5%BF%97%E8%88%AA-7673396.jpg">
+<meta property="article:published_time" content="2024-07-14T14:18:50.000Z">
+<meta property="article:modified_time" content="2025-04-13T18:15:10.182Z">
+<meta property="article:author" content="喇叭">
+<meta property="article:tag" content="心情随笔">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/8cc01fd25831d5d942dae9dd8f83f853.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2024/07/14/台北之旅/"/>
+
+
+
+
+
+  <title>台北之旅 | The Road Ahead</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">The Road Ahead</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">My Life</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../../../images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The Road Ahead">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">台北之旅</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2024-07-14T22:18:50+08:00">
+                2024-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>7月初，因为工作的缘故，在台北转机，有幸在哪里玩了几天。总的来说，吃喝玩乐特别开心，因此在这里记录一下在台北期间的所见所闻和所想所感。</p>
+<p>打卡的Google Maps地图记录： <a href="https://www.google.com/maps/d/u/0/edit?mid=1qkfPj3-E0XvwCyIzs90fqq6Eib6yuA8&amp;usp=sharing">https://www.google.com/maps/d/u/0/edit?mid=1qkfPj3-E0XvwCyIzs90fqq6Eib6yuA8&amp;usp=sharing</a></p>
+<ol>
+<li>台北印象</li>
+</ol>
+<p>台北总体的感觉是一座特别适合生活的城市。既有现代的高楼大厦，也有陈旧的小巷。有历史古迹、也有人文关怀，有庞大的制造业，也有遍地的美食。旅游的时候我甚至觉得，以后如果有机会搬到台北生活，可能也是不错的选择。</p>
+<p>从落地桃园机场的那一刻开始，一直在努力学习台湾的地理和历史。首先大致记下台湾几个主要城市的位置，台北、桃园、新竹、基隆、台南、高雄，她们各自在哪里。然后是台北和新北的关系，以及台北的多个行政区，主要街道、地铁站点和景点名称。我前面几天因为工作的缘故，住在台北市政府附近的酒店里，后面几天住的是台北车站附近太原路上的青年旅馆。这两段旅馆的经历，无意中也帮助我更好地理解了新台北和老台北的城市差别。而对台湾历史的学习，主要来自于维基百科，和实地参观了一些景点。在更多地了解日据和光复之后的台湾历史之后，深刻意识到台湾近代历史和政治的复杂。</p>
+<p>对于台北街道我最深刻的印象，就是下面这张图（<a href="https://www.thenewslens.com/article/84037">引用链接</a>）。整个台北市的街道命名，其实就是一部缩小版的中（华民）国地图。在台北城市扩张之前，老台北基本上是被东西走向的忠孝路，和南北走向的中山路划分成4个象限。中心就是台北车站，旁边是行政院，车站向南步行10分钟就是总统府。大体上，各个象限内的街道名称，基本都是采用民国时期东西南北区域的省份或城市命名。比如，著名的宁夏夜市所在的宁夏路，就位于台北车站西北方向的大同区。以此类推。所以只要看到一个街道名字，大致可以猜出它在台北市的位置。而这对于快速熟悉台北这座城市，特别有用。</p>
+<p><img src="/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/8cc01fd25831d5d942dae9dd8f83f853.jpeg" alt="img"></p>
+<p>不仅如此，台北市道路东西走向的八条主干道，也非常有民国特色。以中山路为南北中轴，左边称“西路”，右边称“东路”。以忠孝路为台北东西中轴，从北向南分别是 民族、民权、民生、南京、忠孝、仁爱、信义、和平。从国父孙中山先生提出的三民主义，到民国首都，再到“四维八德”中的”八德“，这些主干道的路名和顺序非常容易记住，也非常有历史内涵。以下图片引用自<a href="https://m.huxiu.com/article/628431.html">链接</a>。</p>
+<p><img src="/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/85-1589061.png" alt="img"></p>
+<p>当然，1898年开始的50年的日据，即便到今天也给台湾社会留下了挥之不去的影响。上面提到的台北市街道命名源于台湾光复后的1947年，本意也是想要消除日本殖民的痕迹。比如著名商圈西门町的名字，就是来自日据时代。但是台湾和日本的渊源和交流，并没有因为二战结束而中断。反而可以说，从李登辉和陈水扁时代开始，开始进一步加深。我在酒店和景点里，遇到很多去台湾旅游的日本人。甚至在国民革命忠烈祠里，对于抗日英烈的介绍，一边是讲述与日本侵略者的战斗中壮烈殉国，另一边附着日文翻译，让我很是诧异。</p>
+<p>可是尽管如此，个人还是认为，民进党推行的去中国化，是政治短视、是有悖历史事实的，也是不可能实现的。无论何时我们谈论起台湾，尤其是近代台湾的历史，其来自中国的源流是不可回避的、也是无可辩驳的。走在台北的街头，诸多古迹记载着台北从清朝开始建市的历史。今天，无论年轻一代的台湾人对日本多么亲近，他们生活的大街小巷名称中的中国元素，也会无时无刻地提醒他们这块土地的历史。</p>
+<p><img src="/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/IMG_5359.JPG" alt="IMG_5359"></p>
+<ol start="3">
+<li>艋舺龍山寺</li>
+</ol>
+<p><img src="/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/IMG_5483-2228957.jpg" alt="IMG_5483"></p>
+<p>龙山寺应该是台北最火爆的寺庙之一了。主庙的装修特别多金色的饰品，用金碧辉煌来形容也毫不为过。我们去的时候赶上里面正在诵经。那也是我人生第一次经历，真是大开眼界。但是出于对寺庙以及这种场合的尊重，在里面没有拍照片也没有录视频。</p>
+<p>主殿外面占满了人。上面的照片应该也能隐约看出来。主殿里的一位法师通过扩音器带领着人群一起诵经，旁边的几位法师跟着一起唱颂。还有几位法师专门负责敲木鱼，控制节拍。相比诵经、我觉得用唱经来描述可能更加准确，因为哼哼呀呀地声音，感觉还挺好听的。而且她们应该唱的台语，因为我除了“南无阿弥陀佛”以及“回向”之外几乎都没听懂。但似乎我也突然明白了为什么要来唱颂，因为这样比干读经书更容易一些，长时间的吟诵不容易疲惫。同时也更有利于经文传播给更多的人群，哪怕不识字的人也可以。</p>
+<p>来参加诵经的基本都是本地人，很多老爷爷老奶奶，诵经特别地认真、虔诚。我旁边站着一位看起来60岁左右的大爷。他上身穿了一件白色马褂，下身是一条有点破旧带点补丁的七分裤，地上还放着一个袋子。他的牙不是很整齐，只要张开嘴后有几颗牙歪歪扭扭地露出来。但这并不妨碍他跟法师一起，恭恭敬敬地诵经。而且他的声音很洪亮，把所有的力气都喊出来，似乎那正代表了他的虔诚和心无杂念。我一个游客又不是信徒，在人群中也不自觉地恭敬起来，双手合十，向着主位上供奉的观音菩萨鞠躬。（顺便，我印象里大陆的寺庙里主位一般供奉释迦牟尼，好像第一次遇到把观音菩萨放在主位的，不知何解。但是又怕起了不恭敬的心，冒犯了菩萨，罪过罪过）</p>
+<p>令我印象深刻的是台北所有的寺庙，都供奉着很多神像佛像，无论儒释道，让民众可以在一座寺庙里把所有想拜的神全拜了。比如，从维基百科里，龙山寺 “正殿除观世音菩萨外，还有文殊菩萨、普贤菩萨、罗汉和护法。后殿有天上圣母殿、文昌帝君殿、关圣帝君殿，一旁还有华佗厅、月老厅、太岁厅等。天上圣母殿还有水仙尊王、注生娘娘，另有城隍爷、土地公等神，以及十二婆姐、池头夫人等神。其中华佗原本是一家中药铺所供奉，送到寺后因来发现有不少人拜，就为祂设置独立厅堂。月下老人则是2001年才应需求增加。” 可见，真的是一应俱全。</p>
+<p>我后面逛迪化街，顺便参观了一下旁边的霞海城隍庙。那座庙面积不大，但是里面供奉的神像摆的特别满，某资料写里面接近200座，可能是台北供奉神像密度最高的一家。在狭小的空间里有一面墙，上面密密麻麻地摆着很多小盒子。每个小盒子上面标签写地名+人名，以及所求保佑的东西。大多数人求的是“财（富）”，其次是“平（安）”， 好像还有几个求子的。我觉得有些意思。首先说明这个应该算小乘佛教而不是大乘佛教，因为大乘佛教主张普度众生。其次好像有点”财富“和”平安“不可兼得的意味，二者只能取其一。</p>
+<ol start="4">
+<li>国民革命忠烈祠</li>
+</ol>
+<p>国民革命忠烈祠不算是个出名的景点，是我做攻略时无意中发现的，然后排到我在台北最后一天的行程中，而且也是最让我触动、甚至可感慨万千的景点。上午走了4个小时的象山布道，下午坐捷运到“大直”，然后骑Yoyo小黄车过去的。</p>
+<p>去的路上经历还有点搞笑，特此记录一下。我骑上小黄车后，按照谷歌地图的指向一直往西骑。到了一个路口，感觉突然路上完全没车也没什么人，大街变得空荡荡的。对面一个雕塑，刻着青天白日旗，我感觉应该跟国民革命相关，就上前拍了个照。后面的大字说是0102纪念专区，我心想，这个怎么从来没听过啊？（后记：维基百科关于2020年黑鹰坠机事故的<a href="https://zh.wikipedia.org/zh-cn/2020%E5%B9%B4%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E7%A9%BA%E8%BB%8DUH-60M%E9%BB%91%E9%B7%B9%E7%9B%B4%E5%8D%87%E6%A9%9F%E5%A2%9C%E6%AF%80%E4%BA%8B%E6%95%85">链接</a>）</p>
+<p><img src="/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/IMG_5530-2232689.jpg" alt="IMG_5530"></p>
+<p>拍完照以后继续沿着下图（谷歌街景示意图）中右边的行人道往前骑。一边骑一边心里嘀咕，这块是新建的嘛，咋这么偏僻，连个行人都没有。我一个游客骑着小黄车会不会有危险？快骑到下图中前方的水泥地时，右手方向开出来一辆黑色越野车，玻璃是黑的。越野车看到我后明显迟疑了一下，但还是踩了刹车，意思是让我先过。我心里想这司机真客气啊，跟美国一样还礼让行人，于是就挥手跟车致谢了一下。然后举起右手后我就看见大门口两名持枪站岗的卫兵，以及墙上一米多高、金光闪闪的三个大字 “国防部”。 我愣了一下，然后大脑开始飞速运转。啊，这？台湾的国防部？？这是军事管制区？他知道我是大陆的吗？但我是游客啊，应该没事吧？那我面前这是台湾的军车？它还让我先走？怎么办？算了算了，我还是赶紧走吧，人车还在等我呢，别惹事。然后我慌不迭地蹬了一脚自行车赶紧骑过去了。但是然后又想，我要是在这拍个照回去显摆是不是牛逼坏了。然后转头偷偷转头，却看到那两个持枪的卫兵，心想万一他们看我掏手机拍照把我当大陆间谍抓了怎么办？哎，算了算了，我只好压抑下自己拍照的冲动，不多事，老老实实地往前骑。接着下一个单位是 “空军司令部”，再后面是“海军司令部”。太吓人了，感情这块区域原来都是台湾军事要地啊！怪不得街上没啥闲人。</p>
+<p><img src="/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/image-20240728230633767-2233199.png" alt="image-20240728230633767"></p>
+<p>然后很快就到了国民革命英烈祠，门口有个小黄车站，正好还车。大门一个是巨大的牌匾，中间是蒋中正题字“忠烈祠”三个大字，两边分别是“取义” 和 “成仁”。</p>
+<p><img src="/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/%E5%BF%A0%E7%83%88%E7%A5%A0%E5%A4%A7%E9%97%A8.jpg" alt="忠烈祠大门"></p>
+<p><img src="/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/%E5%BF%A0%E7%83%88%E7%A5%A0%E8%BF%9C%E6%99%AF.jpg" alt="忠烈祠远景"></p>
+<p>整个忠烈祠的建筑风景是非常气派的，个人感觉不亚于中正纪念堂。隔着长长的石阶，主体建筑掩藏于青山之内。我脑海里不自觉闪出“青山处处埋忠骨”的诗词。照片里5条长长的直线非常有视觉冲击力，其实是多年来卫兵换岗踢正步留下来的痕迹。</p>
+<p><img src="/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/%E5%BF%A0%E7%83%88%E7%A5%A0%E6%AD%A3%E6%AE%BF.jpg" alt="忠烈祠正殿"></p>
+<p>走到最尽头，就是正殿。可惜正殿从疫情以后就不对外开放了。正殿两侧各有一个祠堂，分别供奉着文忠烈和武忠烈。这里记录了中华民国自1912年至今，开国、讨袁、护法、东征、北伐、剿匪、抗日、戡乱以及缅泰孤军的阵亡将士，甚至也包含了1949年中华人民共和国建国之后，深入大陆内地执行电子作战及侦查任务但被击落殉职的中华民国军人。</p>
+<p><img src="/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/IMG_5542_%E6%96%87%E7%83%88%E5%A3%AB%E7%A5%A0-7673359.jpg" alt="IMG_5542_文烈士祠"></p>
+<p>文忠烈和武忠烈祠大厅都很空旷，气氛肃穆，长长的大厅后侧供奉着大约三四排刻着烈士名字的牌位，一共有几百位。而我是里面唯一的访客，在两个大厅都停留很久，尤其是武忠烈祠，以至于工作人员怀疑我要搞破坏，带着伪装的文件特地过来巡视了一翻。我之所以在里面待了很长时间，是因为心情很复杂、很沉重。</p>
+<p>在我所接受的关于中华民国的历史教育里，前一半，包含开国、讨袁、护法、东征、北伐、剿共、抗日，内容和台湾这边的陈述、包含重要历史事件都是一样的。从早期“秋风秋雨愁煞人”的秋瑾烈士，到黄花岗七十二烈士；从武昌起义到建立中华民国，从东征到北伐，两岸的叙述是完全一致的。对于国共五次围剿和反围剿，除了把共产党称为“共匪”，历史事件也没有差异。1931年开始的抗日战争，承载着两岸共同的沉重记忆。在祠堂前侧的玻璃展台里，我从边上开始，读着每一位烈士的生平，知道和不知道的，忍不住小声抽泣起来。每个人几十年的人生，却浓缩成只有短短几十字。寥寥几语，记录着烈士的生日、籍贯、重要事件以及去世原因。几代先辈烈士们为了对抗外敌入侵，为了民族的独立和尊严，抛头颅洒热血。3500万军民的惨烈牺牲，十四年的不懈斗争（这里暂不提民国政府当初对日本如何地绥靖和卖国了），最终才换来日本的投降和台湾的光复。我在读烈士生平的时候，脑海里不觉出现了毛泽东主席在宣布人民英雄纪念碑的碑文时那铿锵有力的声音：</p>
+<p><em>三十年以来，在人民解放战争和人民革命中牺牲的人民英雄们永垂不朽！由此上溯到一千八百四十年，从那时起，为了反对内外敌人，争取民族独立和人民自由幸福，在历次斗争中牺牲的人民英雄们永垂不朽！</em></p>
+<p>下面两张照片是在武忠烈祠里拍的。我知道很多城市都有张自忠路。我不知道的是，张自忠将军壮烈殉国时的身份是第三十三集团军总司令、陆军上将。他是抗日战争期间中方牺牲的最高级别军事将领，也是整个二战期间盟军牺牲的最高职位将领。高志航烈士的名字，我之前只是隐约有印象。读了他的生平才知道，淞沪会战期间首次击落日机，极大了鼓励了当时的国人。</p>
+<p><img src="/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/IMG_5543%20%E5%BC%A0%E8%87%AA%E5%BF%A0-7673380.jpg" alt="IMG_5543 张自忠"></p>
+<p><img src="/images/%E5%8F%B0%E5%8C%97%E4%B9%8B%E6%97%85/IMG_5544%20%E9%AB%98%E5%BF%97%E8%88%AA-7673396.jpg" alt="IMG_5544 高志航"></p>
+<ol start="5">
+<li>阿嬤家 和平與女性人權館</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="../../../../tags/%E5%BF%83%E6%83%85%E9%9A%8F%E7%AC%94/" rel="tag"># 心情随笔</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="../../../../2023/10/02/%E5%98%9F%E5%98%9F9%E5%B2%81%E7%94%9F%E6%97%A5/" rel="next" title="嘟嘟9岁生日">
+                <i class="fa fa-chevron-left"></i> 嘟嘟9岁生日
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="../../../../2025/04/07/%E6%9C%8B%E5%8F%8B/" rel="prev" title="朋友">
+                朋友 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
 
     <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+      
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+          </div>
+          
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="../../../../images/avatar.jpg"
+               alt="" />
+          <p class="site-author-name" itemprop="name"></p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="../../../../archives/">
+                <span class="site-state-item-count">153</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="../../../../tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">喇叭</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="../../../../lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="../../../../lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="../../../../lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="../../../../lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="../../../../lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="../../../../lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="../../../../js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="../../../../js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="../../../../js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="../../../../js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="../../../../js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="../../../../js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="../../../../js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
